@@ -1,4 +1,4 @@
-const say = msg => console.log(msg);
+const say = (...args) => console.log(...args);
 
 
 const URL="/test";
@@ -32,18 +32,27 @@ function getmsg(data) {
 
 const main = document.querySelector('main');
 const psections = document.getElementsByClassName('psection');
-for (let i = 1; i < psections.length; i++) { psections[i].classList.add('low'); }
 
-function printMainScrollPosition() {
-	let h = psections[0].offsetHeight-200;
-    let scrollPositionVertical = main.scrollTop;
-    let n = Math.round(scrollPositionVertical / h);
-	for (let i = 0; i < psections.length; i++) {
-		psections[i].classList.add('low');
+
+function scrollPositionChanged() {
+	let vh = window.innerHeight;
+	for (let i=0; i < psections.length; i++) {
+		let s = psections[i];
+		let im = s.getElementsByTagName('img')[0];
+		let h = s.getBoundingClientRect().top;
+		
+		s.classList.add('low');
+		if (h > -vh*.2) {
+			s.classList.remove('low');
+		}
+		if (h > vh*.5) {
+			s.classList.add('low');
+		}
+		h = -h/1;
+		im.style.top = `${h}px`;
 	}
-	psections[n].classList.remove('low');
-	say(n);
 }
 
-main.addEventListener('scroll', printMainScrollPosition);
+main.addEventListener('scroll', scrollPositionChanged);
 
+scrollPositionChanged();
