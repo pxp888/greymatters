@@ -3,8 +3,15 @@
 
 :root {
 	--color-highlight1: rgb(235, 121, 76);
+	
+	
+	--color-back1: rgb(0 0 0);
+	/* --color-back1: rgb(35 35 35); */
+	
 	--color-back2: rgb(32, 32, 32);
-	--color-back1: rgb(0, 0, 0);
+	/* --color-back2: rgb(32, 32, 52); */
+	/* --color-back2: rgb(0 0 0); */
+		
 }
 
 body {
