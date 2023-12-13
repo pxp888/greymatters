@@ -48,6 +48,7 @@ function scrollPositionChanged() {
 		if (h > vh*.5) {
 			s.classList.add('low');
 		}
+		
 		h = -h/1;
 		im.style.top = `${h}px`;
 	}
