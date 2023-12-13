@@ -41,11 +41,14 @@ function scrollPositionChanged() {
 		let im = s.getElementsByTagName('img')[0];
 		let h = s.getBoundingClientRect().top;
 		
+		let imholder = s.getElementsByClassName('imholder')[0];
+		let h2 = imholder.getBoundingClientRect().top;
+
 		s.classList.add('low');
-		if (h > -vh*.2) {
+		if (h2 > -vh*.2) {
 			s.classList.remove('low');
 		}
-		if (h > vh*.5) {
+		if (h2 > vh*.5) {
 			s.classList.add('low');
 		}
 		
